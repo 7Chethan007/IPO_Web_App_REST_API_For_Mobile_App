@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import Sidebar from '../../components/Admin/Sidebar';
 import Header from '../../components/Admin/Header';
-import IPOTable from '../../components/Admin/Table/IPOTable';
+import IPOForm from '../../components/Admin/IPO/IPOForm';
+import IPOList from '../../components/Admin/IPO/IPOList';
 
-const sampleData = [
-  { company:'Adani Power', priceBand:'₹329-136', openDate:'2023-06-03', closeDate:'2024-06-05', issueSize:'45530.15 Cr.', issueType:'Book Built', listingDate:'2023-06-10', status:'Ongoing', statusColor:'green' },
-  // ... more rows
-];
+const ManageIPO = () => {
+  const [ipoList, setIpoList] = useState([]);
+  const [isFormVisible, setFormVisible] = useState(false);
 
-export default function ManageIPO() {
-  const [data, setData] = useState(sampleData);
-  const handleUpdate = ipo => console.log('Update', ipo);
-  const handleDelete = ipo => setData(d=>d.filter(x=>x!==ipo));
-  const handleView = ipo => console.log('View', ipo);
+  const handleAddIPO = (ipo) => {
+    setIpoList((prev) => [...prev, ipo]); // Add IPO to local state
+    setFormVisible(false);
+  };
 
   return (
     <div className="flex">
@@ -21,17 +20,21 @@ export default function ManageIPO() {
         <Header />
         <div className="p-6">
           <div className="flex justify-between items-center mb-4">
-            <h1 className="text-xl font-semibold">Upcoming IPO | Dashboard</h1>
-            <button className="bg-indigo-600 text-white px-4 py-2 rounded">Register IPO</button>
+            <h2 className="text-xl font-bold">Upcoming IPO Information</h2>
+            <button onClick={() => setFormVisible(true)} className="bg-blue-600 text-white px-4 py-2 rounded">
+              Register IPO
+            </button>
           </div>
-          <IPOTable
-            items={data}
-            onUpdate={handleUpdate}
-            onDelete={handleDelete}
-            onView={handleView}
-          />
+
+          {isFormVisible ? (
+            <IPOForm onSubmit={handleAddIPO} onCancel={() => setFormVisible(false)} />
+          ) : (
+            <IPOList ipoList={ipoList} />
+          )}
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default ManageIPO;

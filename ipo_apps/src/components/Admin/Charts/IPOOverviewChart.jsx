@@ -1,13 +1,50 @@
-import React from 'react';
-import { PieChart, Pie, Cell } from 'recharts';
-const data = [ { name: 'Loss', value: 9 }, { name: 'Gain', value: 20 }, { name: 'Total', value: 30 } ];
-const COLORS = ['#9CA3AF','#34D399','#FBBF24'];
-export default function IPOOverviewChart() {
+import React, { useEffect, useRef } from 'react';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement, // Add this for pie/doughnut charts
+  PointElement,
+  LineElement,
+} from 'chart.js';
+import { Bar, Doughnut } from 'react-chartjs-2';
+
+// Register all Chart.js components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement, // Register ArcElement for pie/doughnut charts
+  PointElement,
+  LineElement
+);
+
+const IPOOverviewChart = () => {
+  const chartRef = useRef(null);
+
+  // Cleanup chart on unmount
+  useEffect(() => {
+    return () => {
+      if (chartRef.current) {
+        chartRef.current.destroy();
+      }
+    };
+  }, []);
+
+  // Your existing chart code here...
+  
   return (
-    <PieChart width={300} height={200}>
-      <Pie data={data} dataKey="value" cx="50%" cy="50%" innerRadius={50} outerRadius={80}>
-        {data.map((_, i) => <Cell key={i} fill={COLORS[i]} />)}
-      </Pie>
-    </PieChart>
+    <div>
+      {/* Your chart component */}
+    </div>
   );
-}
+};
+
+export default IPOOverviewChart;

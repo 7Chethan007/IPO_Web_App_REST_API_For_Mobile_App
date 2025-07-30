@@ -10,6 +10,8 @@ import ForgotPasswordPage from "./pages/Admin/Auth/ForgotPasswordPage"
 import DashboardOverview from './pages/Admin/DashboardOverview';
 import ManageIPO from './pages/Admin/ManageIPO';
 import RegisterIPO from './pages/Admin/RegisterIPO';
+import './utils/chartConfig'; 
+
 
 function App() {
   return (

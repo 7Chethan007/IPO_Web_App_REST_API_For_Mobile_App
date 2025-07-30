@@ -1,9 +1,50 @@
-import React from 'react';
-import { Doughnut } from 'react-chartjs-2';
-export default function MainBoardChart() {
-  const data = {
-    labels: ['Upcoming', 'New Listed', 'Ongoing'],
-    datasets: [{ data: [15,25,2], backgroundColor: ['#C7D2FE','#A5B4FC','#E0E7FF'] }]
-  };
-  return <Doughnut data={data} />;
-}
+import React, { useEffect, useRef } from 'react';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement, // Add this for pie/doughnut charts
+  PointElement,
+  LineElement,
+} from 'chart.js';
+import { Bar, Doughnut } from 'react-chartjs-2';
+
+// Register all Chart.js components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement, // Register ArcElement for pie/doughnut charts
+  PointElement,
+  LineElement
+);
+
+const MainBoardChart = () => {
+  const chartRef = useRef(null);
+
+  // Cleanup chart on unmount
+  useEffect(() => {
+    return () => {
+      if (chartRef.current) {
+        chartRef.current.destroy();
+      }
+    };
+  }, []);
+
+  // Your existing chart code here...
+  
+  return (
+    <div>
+      {/* Your chart component */}
+    </div>
+  );
+};
+
+export default MainBoardChart;
