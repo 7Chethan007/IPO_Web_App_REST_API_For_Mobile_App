@@ -1,0 +1,402 @@
+{
+  "info": {
+    "name": "IPO Management System API",
+    "description": "Complete API collection for IPO Management System with authentication, companies, and IPOs endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{access_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000/api",
+      "type": "string"
+    },
+    {
+      "key": "access_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "refresh_token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login", ""]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    const response = pm.response.json();",
+                  "    pm.collectionVariables.set('access_token', response.access);",
+                  "    pm.collectionVariables.set('refresh_token', response.refresh);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"testuser\",\n  \"email\": \"test@example.com\",\n  \"password\": \"testpass123\",\n  \"first_name\": \"Test\",\n  \"last_name\": \"User\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "register", ""]
+            }
+          }
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refresh\": \"{{refresh_token}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/token/refresh/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "token", "refresh", ""]
+            }
+          }
+        },
+        {
+          "name": "User Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/profile/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "profile", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Companies",
+      "item": [
+        {
+          "name": "List Companies",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/companies/",
+              "host": ["{{base_url}}"],
+              "path": ["companies", ""]
+            }
+          }
+        },
+        {
+          "name": "Create Company",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Sample Tech Company\",\n  \"description\": \"A technology company specializing in innovative solutions\",\n  \"sector\": \"Technology\",\n  \"industry\": \"Software\",\n  \"website\": \"https://sampletech.com\",\n  \"established_year\": 2020,\n  \"headquarters\": \"Mumbai, India\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/companies/",
+              "host": ["{{base_url}}"],
+              "path": ["companies", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Company Details",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/companies/1/",
+              "host": ["{{base_url}}"],
+              "path": ["companies", "1", ""]
+            }
+          }
+        },
+        {
+          "name": "Update Company",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Tech Company\",\n  \"description\": \"Updated description\",\n  \"sector\": \"Technology\",\n  \"industry\": \"Software\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/companies/1/",
+              "host": ["{{base_url}}"],
+              "path": ["companies", "1", ""]
+            }
+          }
+        },
+        {
+          "name": "Search Companies",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/companies/?search=tech",
+              "host": ["{{base_url}}"],
+              "path": ["companies", ""],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "tech"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPOs",
+      "item": [
+        {
+          "name": "List IPOs",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/ipos/",
+              "host": ["{{base_url}}"],
+              "path": ["ipos", ""]
+            }
+          }
+        },
+        {
+          "name": "Create IPO",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"company\": 1,\n  \"issue_size\": \"1000.00\",\n  \"price_range_min\": \"100.00\",\n  \"price_range_max\": \"120.00\",\n  \"open_date\": \"2025-08-15\",\n  \"close_date\": \"2025-08-18\",\n  \"listing_date\": \"2025-08-25\",\n  \"board\": \"MAIN\",\n  \"status\": \"UPCOMING\",\n  \"lot_size\": 100,\n  \"registrar\": \"Link Intime India Pvt Ltd\",\n  \"lead_managers\": \"ICICI Securities, Kotak Mahindra Capital\",\n  \"is_featured\": true,\n  \"is_recommended\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/ipos/",
+              "host": ["{{base_url}}"],
+              "path": ["ipos", ""]
+            }
+          }
+        },
+        {
+          "name": "Get IPO Details",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/ipos/1/",
+              "host": ["{{base_url}}"],
+              "path": ["ipos", "1", ""]
+            }
+          }
+        },
+        {
+          "name": "Upcoming IPOs",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/ipos/upcoming/",
+              "host": ["{{base_url}}"],
+              "path": ["ipos", "upcoming", ""]
+            }
+          }
+        },
+        {
+          "name": "Open IPOs",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/ipos/open/",
+              "host": ["{{base_url}}"],
+              "path": ["ipos", "open", ""]
+            }
+          }
+        },
+        {
+          "name": "Featured IPOs",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/ipos/featured/",
+              "host": ["{{base_url}}"],
+              "path": ["ipos", "featured", ""]
+            }
+          }
+        },
+        {
+          "name": "Search IPOs",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/ipos/search/?q=tech",
+              "host": ["{{base_url}}"],
+              "path": ["ipos", "search", ""],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "tech"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Filter IPOs by Status",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/ipos/?status=UPCOMING",
+              "host": ["{{base_url}}"],
+              "path": ["ipos", ""],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "UPCOMING"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Upload IPO Documents",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "rhp",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "drhp",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/ipos/1/upload_documents/",
+              "host": ["{{base_url}}"],
+              "path": ["ipos", "1", "upload_documents", ""]
+            }
+          }
+        },
+        {
+          "name": "Download RHP Document",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/ipos/1/download_rhp/",
+              "host": ["{{base_url}}"],
+              "path": ["ipos", "1", "download_rhp", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "API Root",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": ["{{base_url}}"],
+          "path": [""]
+        }
+      }
+    }
+  ]
+}
