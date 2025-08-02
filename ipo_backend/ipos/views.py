@@ -47,13 +47,16 @@ class IPOViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         """
-        Admin users can perform all actions.
-        Regular users can only read.
+        Authenticated users can create and update IPOs.
+        Only admin users can delete IPOs.
+        Anyone can read IPO data.
         """
-        if self.action in ['create', 'update', 'partial_update', 'destroy', 'upload_documents']:
+        if self.action == 'destroy':  # Only delete requires admin
             permission_classes = [permissions.IsAdminUser]
+        elif self.action in ['create', 'update', 'partial_update', 'upload_documents']:
+            permission_classes = [permissions.IsAuthenticated]  # Any authenticated user can create/update
         else:
-            permission_classes = [permissions.AllowAny]
+            permission_classes = [permissions.AllowAny]  # Anyone can read
         return [permission() for permission in permission_classes]
 
     def get_queryset(self):
@@ -65,6 +68,10 @@ class IPOViewSet(viewsets.ModelViewSet):
             queryset = IPOFilter.filter_by_status(queryset, status_filter)
         
         return queryset
+
+    def perform_create(self, serializer):
+        """Set the created_by field when creating a new IPO"""
+        serializer.save(created_by=self.request.user)
 
     @action(detail=False, methods=['get'])
     def upcoming(self, request):
@@ -169,8 +176,10 @@ class IPODocumentViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     
     def get_permissions(self):
-        if self.action in ['create', 'update', 'partial_update', 'destroy']:
+        if self.action == 'destroy':  # Only delete requires admin
             permission_classes = [permissions.IsAdminUser]
+        elif self.action in ['create', 'update', 'partial_update']:
+            permission_classes = [permissions.IsAuthenticated]  # Any authenticated user can create/update
         else:
             permission_classes = [permissions.AllowAny]
         return [permission() for permission in permission_classes]
@@ -189,11 +198,16 @@ class IPONewsViewSet(viewsets.ModelViewSet):
     ordering = ['-created_at']
     
     def get_permissions(self):
-        if self.action in ['create', 'update', 'partial_update', 'destroy']:
+        if self.action == 'destroy':  # Only delete requires admin
             permission_classes = [permissions.IsAdminUser]
+        elif self.action in ['create', 'update', 'partial_update']:
+            permission_classes = [permissions.IsAuthenticated]  # Any authenticated user can create/update
         else:
             permission_classes = [permissions.AllowAny]
         return [permission() for permission in permission_classes]
+
+    def perform_create(self, serializer):
+        serializer.save(created_by=self.request.user)
 
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user)

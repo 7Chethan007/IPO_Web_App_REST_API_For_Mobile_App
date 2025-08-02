@@ -23,14 +23,21 @@ class CompanyViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         """
-        Admin users can perform all actions.
-        Regular users can only read.
+        Authenticated users can create and update companies.
+        Only admin users can delete companies.
+        Anyone can read company data.
         """
-        if self.action in ['create', 'update', 'partial_update', 'destroy']:
+        if self.action == 'destroy':  # Only delete requires admin
             permission_classes = [permissions.IsAdminUser]
+        elif self.action in ['create', 'update', 'partial_update']:
+            permission_classes = [permissions.IsAuthenticated]  # Any authenticated user can create/update
         else:
-            permission_classes = [permissions.AllowAny]
+            permission_classes = [permissions.AllowAny]  # Anyone can read
         return [permission() for permission in permission_classes]
+
+    def perform_create(self, serializer):
+        """Set the created_by field when creating a new company"""
+        serializer.save(created_by=self.request.user)
 
     @action(detail=True, methods=['get'])
     def ipos(self, request, pk=None):

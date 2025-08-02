@@ -6,6 +6,7 @@ import IPOListing from './components/IPOListing';
 import SigninPage from "./pages/Admin/Auth/SigninPage";
 import SignupPage from './pages/Admin/Auth/SignupPage';
 import ForgotPasswordPage from "./pages/Admin/Auth/ForgotPasswordPage"
+import ConnectionTest from './components/ConnectionTest';
 
 import DashboardOverview from './pages/Admin/DashboardOverview';
 import ManageIPO from './pages/Admin/ManageIPO';
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<UpcomingIPOs />} />
         <Route path="/upcoming-ipo" element={<UpcomingIPOs />} />
         <Route path="/ipo-listing" element={<IPOListing />} />
+        <Route path="/test-connection" element={<ConnectionTest />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin/signup" element={<SignupPage />} />
         <Route path="/admin/signin" element={<SigninPage />} />

@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import AuthService from '../../services/authService';
 import logoWithName from '../../assets/logo/logo_with_name.jpg';
 
 const SignupForm = ({ onSignup }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
+    username: '',
     email: '',
     password: '',
+    confirmPassword: '',
   });
 
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData(prev => ({
@@ -19,26 +27,81 @@ const SignupForm = ({ onSignup }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { name, email, password } = formData;
+    const { firstName, lastName, username, email, password, confirmPassword } = formData;
 
     // Basic validation
-    if (!name || !email || !password) {
+    if (!firstName || !lastName || !username || !email || !password || !confirmPassword) {
       setError("All fields are required");
       setSuccess("");
       return;
     }
 
-    if (password.length < 6) {
-      setError("Password must be at least 6 characters long");
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
       setSuccess("");
       return;
     }
 
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters long");
+      setSuccess("");
+      return;
+    }
+
+    setIsLoading(true);
     setError("");
-    setSuccess("Signup successful!");
-    onSignup?.(formData);
+    setSuccess("");
+
+    try {
+      const userData = {
+        username: username,
+        email: email,
+        password: password,
+        first_name: firstName,
+        last_name: lastName
+      };
+
+      const response = await AuthService.register(userData);
+      
+      if (response.access) {
+        setSuccess("Account created successfully! Redirecting to dashboard...");
+        
+        // Auto-login the user after successful registration
+        setTimeout(() => {
+          // Allow all authenticated users to access the dashboard
+          navigate('/admin/dashboard');
+        }, 2000);
+      }
+    } catch (error) {
+      console.error('Registration error:', error);
+      
+      if (error.response?.data) {
+        // Handle field-specific errors
+        const errorData = error.response.data;
+        let errorMessage = '';
+        
+        if (errorData.username) {
+          errorMessage += `Username: ${errorData.username.join(', ')}. `;
+        }
+        if (errorData.email) {
+          errorMessage += `Email: ${errorData.email.join(', ')}. `;
+        }
+        if (errorData.password) {
+          errorMessage += `Password: ${errorData.password.join(', ')}. `;
+        }
+        if (errorData.error) {
+          errorMessage = errorData.error;
+        }
+        
+        setError(errorMessage || "Registration failed. Please try again.");
+      } else {
+        setError("Registration failed. Please try again.");
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleGoogleSignup = () => {
@@ -53,7 +116,6 @@ const SignupForm = ({ onSignup }) => {
         <div className="text-center">
           <img
             className="mx-auto h-12 w-auto"
-            // src="public/assets/logo/logo_with_name.jpg"
             src={logoWithName}
             alt="Bluestock"
           />
@@ -75,19 +137,51 @@ const SignupForm = ({ onSignup }) => {
           )}
 
           <div className="space-y-4">
-            {/* Name Field */}
+            {/* First Name and Last Name */}
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
+                  First Name
+                </label>
+                <input
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  className="appearance-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                  placeholder="John"
+                />
+              </div>
+              <div>
+                <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
+                  Last Name
+                </label>
+                <input
+                  id="lastName"
+                  name="lastName"
+                  type="text"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  className="appearance-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                  placeholder="Doe"
+                />
+              </div>
+            </div>
+
+            {/* Username Field */}
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                Name
+              <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">
+                Username
               </label>
               <input
-                id="name"
-                name="name"
+                id="username"
+                name="username"
                 type="text"
-                value={formData.name}
+                value={formData.username}
                 onChange={handleChange}
                 className="appearance-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                placeholder="Shrutika Shinde"
+                placeholder="johndoe"
               />
             </div>
 
@@ -103,7 +197,7 @@ const SignupForm = ({ onSignup }) => {
                 value={formData.email}
                 onChange={handleChange}
                 className="appearance-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                placeholder="hello@bluestock.in"
+                placeholder="john@example.com"
               />
             </div>
 
@@ -127,26 +221,42 @@ const SignupForm = ({ onSignup }) => {
                   className="absolute inset-y-0 right-0 pr-3 flex items-center"
                   onClick={() => setShowPassword(!showPassword)}
                 >
-                  <svg
-                    className="h-5 w-5 text-gray-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+                  <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     {showPassword ? (
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"
-                      />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3l4.242 4.242M9.878 9.878a3 3 0 105.303-.108m0 0L21 21" />
                     ) : (
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                      />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    )}
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Confirm Password Field */}
+            <div>
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
+                Confirm Password
+              </label>
+              <div className="relative">
+                <input
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  type={showConfirmPassword ? "text" : "password"}
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  className="appearance-none relative block w-full px-3 py-3 pr-10 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                  placeholder="••••••••••••"
+                />
+                <button
+                  type="button"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                >
+                  <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    {showConfirmPassword ? (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3l4.242 4.242M9.878 9.878a3 3 0 105.303-.108m0 0L21 21" />
+                    ) : (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     )}
                   </svg>
                 </button>
@@ -155,29 +265,48 @@ const SignupForm = ({ onSignup }) => {
           </div>
 
           {/* Terms and Conditions */}
-          <div className="text-sm text-gray-600">
-            By continuing, you agree to our{' '}
-            <a href="#" className="text-blue-600 hover:text-blue-500">
-              terms of service
-            </a>
-            .
-          </div>
-
-          {/* reCAPTCHA placeholder */}
-          <div className="bg-gray-100 border border-gray-300 rounded p-4 flex items-center justify-between">
-            <div className="flex items-center">
-              <input type="checkbox" className="mr-3" />
-              <span className="text-sm text-gray-700">I'm not a robot</span>
-            </div>
-            <div className="text-xs text-gray-500">reCAPTCHA</div>
+          <div className="flex items-center">
+            <input
+              id="terms"
+              name="terms"
+              type="checkbox"
+              className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+              required
+            />
+            <label htmlFor="terms" className="ml-2 block text-sm text-gray-900">
+              I agree to the{' '}
+              <button
+                type="button"
+                className="text-blue-600 hover:text-blue-500"
+                onClick={() => console.log('Terms clicked')}
+              >
+                Terms and Conditions
+              </button>{' '}
+              and{' '}
+              <button
+                type="button"
+                className="text-blue-600 hover:text-blue-500"
+                onClick={() => console.log('Privacy clicked')}
+              >
+                Privacy Policy
+              </button>
+            </label>
           </div>
 
           {/* Sign Up Button */}
           <button
             type="submit"
-            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+            disabled={isLoading}
+            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Sign up
+            {isLoading ? (
+              <div className="flex items-center">
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                Creating account...
+              </div>
+            ) : (
+              'Create Account'
+            )}
           </button>
 
           {/* Divider */}
@@ -214,16 +343,20 @@ const SignupForm = ({ onSignup }) => {
                 d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
               />
             </svg>
-            Continue with Google
+            Sign up with Google
           </button>
 
           {/* Sign In Link */}
           <div className="text-center">
             <span className="text-sm text-gray-600">
               Already have an account?{' '}
-              <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
-                Sign in here
-              </a>
+              <button
+                type="button"
+                className="font-medium text-blue-600 hover:text-blue-500"
+                onClick={() => navigate('/admin/signin')}
+              >
+                Sign in
+              </button>
             </span>
           </div>
         </form>

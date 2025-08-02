@@ -53,7 +53,7 @@ class IPODetailSerializer(serializers.ModelSerializer):
             'price_range_min', 'price_range_max', 'price_range',
             'listing_price', 'open_date', 'close_date', 'listing_date',
             'board', 'status', 'lot_size', 'total_subscription',
-            'retail_subscription', 'qib_subscription', 'nii_subscription',
+            'retail_subscription', 'institutional_subscription',
             'rhp_document', 'drhp_document', 'registrar', 'lead_managers',
             'listing_gains', 'current_price', 'is_featured', 'is_recommended',
             'documents', 'news', 'is_open', 'days_to_open', 'days_to_close',
@@ -77,7 +77,7 @@ class IPOCreateUpdateSerializer(serializers.ModelSerializer):
             'company', 'issue_size', 'price_range_min', 'price_range_max',
             'listing_price', 'open_date', 'close_date', 'listing_date',
             'board', 'status', 'lot_size', 'total_subscription',
-            'retail_subscription', 'qib_subscription', 'nii_subscription',
+            'retail_subscription', 'institutional_subscription',
             'registrar', 'lead_managers', 'listing_gains', 'current_price',
             'is_featured', 'is_recommended'
         ]

@@ -90,7 +90,7 @@ const ForgotPasswordForm = () => {
           <div className="text-center">
             <span className="text-sm text-gray-600">
               Remember your password?{' '}
-              <a href="/signin" className="font-medium text-blue-600 hover:text-blue-500">
+              <a href="/admin/signin" className="font-medium text-blue-600 hover:text-blue-500">
                 Back to sign in
               </a>
             </span>

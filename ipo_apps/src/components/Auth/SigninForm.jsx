@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import AuthService from '../../services/authService';
 import logoWithName from '../../assets/logo/logo_with_name.jpg';
 
 const SigninForm = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -10,6 +13,7 @@ const SigninForm = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -20,16 +24,48 @@ const SigninForm = () => {
     setForm({ ...form, captcha: Boolean(value) });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password, captcha } = form;
+    
     if (!email || !password || !captcha) {
       setError("All fields and captcha are required.");
       return;
     }
+    
+    setIsLoading(true);
     setError("");
-    alert("Login successful!");
-    // TODO: Send credentials to backend
+    
+    try {
+      // Handle both email and username inputs
+      let username;
+      if (email.includes('@')) {
+        // If it's an email, try using the username from the known credentials
+        if (email === 'chethan@admin.com') {
+          username = 'chethan';
+        } else if (email === 'admin@ipo.com') {
+          username = 'admin';
+        } else {
+          // Extract username from email
+          username = email.split('@')[0];
+        }
+      } else {
+        // If it's already a username
+        username = email;
+      }
+      
+      const response = await AuthService.login(username, password);
+      
+      if (response.access) {
+        // Allow all authenticated users to access the dashboard
+        navigate('/admin/dashboard');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      setError(error.response?.data?.detail || "Login failed. Please check your credentials.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleGoogleSignin = () => {
@@ -121,9 +157,13 @@ const SigninForm = () => {
                 </button>
               </div>
               <div className="mt-2 text-right">
-                <a href="#" className="text-sm text-blue-600 hover:text-blue-500">
+                <button 
+                  type="button"
+                  className="text-sm text-blue-600 hover:text-blue-500"
+                  onClick={() => navigate('/admin/forgot-password')}
+                >
                   Forgot your password?
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -145,9 +185,17 @@ const SigninForm = () => {
           {/* Sign In Button */}
           <button
             type="submit"
-            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+            disabled={isLoading}
+            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Sign in
+            {isLoading ? (
+              <div className="flex items-center">
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                Signing in...
+              </div>
+            ) : (
+              'Sign in'
+            )}
           </button>
 
           {/* Divider */}

@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AuthService from '../../services/authService';
 
 export default function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
   
-  // You can get this from context, props, or local storage
-  // For now, using a placeholder - replace with actual user data
-  const user = {
-    name: "John Doe", // Replace with actual logged-in user name
-    email: "john.doe@example.com"
-  };
+  useEffect(() => {
+    // Get the current user from AuthService
+    const currentUser = AuthService.getCurrentUser();
+    setUser(currentUser);
+  }, []);
 
   const handleLogout = () => {
     // Clear user session/token
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('user');
+    AuthService.logout();
     
     // Redirect to signin page
     navigate('/admin/signin');
@@ -47,7 +47,7 @@ export default function Header() {
             onClick={toggleDropdown}
             className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 focus:outline-none"
           >
-            <span>Hi, {user.name}</span>
+            <span>Hi, {user ? `${user.first_name} ${user.last_name}`.trim() || user.username : 'User'}</span>
             <svg
               className={`w-4 h-4 transition-transform duration-200 ${
                 isDropdownOpen ? 'rotate-180' : ''
@@ -69,8 +69,8 @@ export default function Header() {
           {isDropdownOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border">
               <div className="px-4 py-2 text-sm text-gray-700 border-b">
-                <div className="font-medium">{user.name}</div>
-                <div className="text-gray-500">{user.email}</div>
+                <div className="font-medium">{user ? `${user.first_name} ${user.last_name}`.trim() || user.username : 'User'}</div>
+                <div className="text-gray-500">{user ? user.email : ''}</div>
               </div>
               
               <button

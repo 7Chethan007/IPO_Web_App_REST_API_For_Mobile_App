@@ -1,0 +1,672 @@
+INFO 2025-08-02 14:55:57,929 autoreload 19684 22456 Watching for file changes with StatReloader
+INFO 2025-08-02 14:55:59,227 autoreload 19684 22456 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\ipo_project\settings.py changed, reloading.
+INFO 2025-08-02 14:55:59,773 autoreload 22224 22752 Watching for file changes with StatReloader
+INFO 2025-08-02 14:56:12,477 autoreload 22224 22752 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\views.py changed, reloading.
+INFO 2025-08-02 14:56:13,081 autoreload 7508 10600 Watching for file changes with StatReloader
+INFO 2025-08-02 14:56:16,301 autoreload 7508 10600 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\views.py changed, reloading.
+INFO 2025-08-02 14:56:17,001 autoreload 1860 9092 Watching for file changes with StatReloader
+INFO 2025-08-02 14:56:22,378 autoreload 1860 9092 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\views.py changed, reloading.
+INFO 2025-08-02 14:56:23,060 autoreload 3548 14708 Watching for file changes with StatReloader
+INFO 2025-08-02 14:56:24,248 autoreload 3548 14708 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\views.py changed, reloading.
+INFO 2025-08-02 14:56:24,992 autoreload 20020 20224 Watching for file changes with StatReloader
+INFO 2025-08-02 14:56:31,559 autoreload 20020 20224 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\views.py changed, reloading.
+INFO 2025-08-02 14:56:32,226 autoreload 13432 13352 Watching for file changes with StatReloader
+INFO 2025-08-02 14:56:33,420 autoreload 13432 13352 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\views.py changed, reloading.
+INFO 2025-08-02 14:56:33,967 autoreload 2964 14804 Watching for file changes with StatReloader
+INFO 2025-08-02 14:56:44,490 autoreload 2964 14804 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\views.py changed, reloading.
+INFO 2025-08-02 14:56:45,007 autoreload 10800 12708 Watching for file changes with StatReloader
+INFO 2025-08-02 14:57:55,394 autoreload 21412 15464 Watching for file changes with StatReloader
+INFO 2025-08-02 14:59:10,598 autoreload 21412 15464 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\views.py changed, reloading.
+INFO 2025-08-02 14:59:11,090 autoreload 6640 8132 Watching for file changes with StatReloader
+INFO 2025-08-02 14:59:12,592 autoreload 6640 8132 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\views.py changed, reloading.
+INFO 2025-08-02 14:59:13,150 autoreload 16168 20132 Watching for file changes with StatReloader
+ERROR 2025-08-02 14:59:20,292 log 16168 9168 Internal Server Error: /api/auth/signup
+Traceback (most recent call last):
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/auth/signup/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-08-02 14:59:20,292 basehttp 16168 9168 "POST /api/auth/signup HTTP/1.1" 500 81209
+INFO 2025-08-02 14:59:27,196 basehttp 16168 11184 "GET /api/auth/signup HTTP/1.1" 301 0
+WARNING 2025-08-02 14:59:27,204 log 16168 7400 Not Acceptable: /api/auth/signup/
+WARNING 2025-08-02 14:59:27,204 basehttp 16168 7400 "GET /api/auth/signup/ HTTP/1.1" 406 57
+INFO 2025-08-02 15:00:38,670 views 16168 9168 Registration attempt with data: {'username': ['chethan'], 'password': ['Chethan@007']}
+WARNING 2025-08-02 15:00:38,670 views 16168 9168 Registration validation failed: {'username': ['Username must be a string'], 'password': ['Password must be a string']}
+WARNING 2025-08-02 15:00:38,670 log 16168 9168 Bad Request: /api/auth/signup/
+WARNING 2025-08-02 15:00:38,670 basehttp 16168 9168 "POST /api/auth/signup/ HTTP/1.1" 400 83
+INFO 2025-08-02 15:01:32,433 views 16168 9168 Registration attempt with data: {'username': 'testuser', 'email': 'test@example.com', 'password': 'testpass123'}
+INFO 2025-08-02 15:01:32,613 views 16168 9168 Creating user: testuser
+INFO 2025-08-02 15:01:32,828 views 16168 9168 User testuser created successfully
+INFO 2025-08-02 15:01:32,844 basehttp 16168 9168 "POST /api/auth/signup/ HTTP/1.1" 201 617
+INFO 2025-08-02 15:03:40,202 views 16168 11600 Login attempt with username: testuser
+INFO 2025-08-02 15:03:40,432 views 16168 11600 User testuser logged in successfully
+INFO 2025-08-02 15:03:40,432 basehttp 16168 11600 "POST /api/auth/signin/ HTTP/1.1" 200 483
+INFO 2025-08-02 15:04:42,466 views 16168 22664 Login attempt with username: testuser
+INFO 2025-08-02 15:04:42,713 views 16168 22664 User testuser logged in successfully
+INFO 2025-08-02 15:04:42,713 basehttp 16168 22664 "POST /api/auth/signin/ HTTP/1.1" 200 483
+INFO 2025-08-02 15:06:35,379 views 16168 19896 Login attempt with username: testuser
+WARNING 2025-08-02 15:06:35,606 views 16168 19896 Login failed for testuser: No active account found with the given credentials
+WARNING 2025-08-02 15:06:35,608 log 16168 19896 Unauthorized: /api/auth/login/
+WARNING 2025-08-02 15:06:35,608 basehttp 16168 19896 "POST /api/auth/login/ HTTP/1.1" 401 63
+WARNING 2025-08-02 15:07:31,067 log 16168 19896 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 15:07:31,067 basehttp 16168 19896 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+INFO 2025-08-02 15:08:01,492 views 16168 19896 Login attempt with username: testuser
+INFO 2025-08-02 15:08:01,725 views 16168 19896 User testuser logged in successfully
+INFO 2025-08-02 15:08:01,725 basehttp 16168 19896 "POST /api/auth/signin/ HTTP/1.1" 200 483
+WARNING 2025-08-02 15:08:45,536 log 16168 19896 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 15:08:45,538 basehttp 16168 19896 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 15:11:06,741 log 16168 13152 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 15:11:06,749 basehttp 16168 13152 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 15:11:08,674 log 16168 13152 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 15:11:08,674 basehttp 16168 13152 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+INFO 2025-08-02 15:11:22,225 views 16168 13152 Login attempt with username: testuser
+INFO 2025-08-02 15:11:22,455 views 16168 13152 User testuser logged in successfully
+INFO 2025-08-02 15:11:22,455 basehttp 16168 13152 "POST /api/auth/signin/ HTTP/1.1" 200 483
+WARNING 2025-08-02 15:11:35,167 log 16168 13152 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 15:11:35,167 basehttp 16168 13152 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 15:11:59,825 log 16168 13152 Forbidden: /api/auth/admin/stats/
+WARNING 2025-08-02 15:11:59,833 basehttp 16168 13152 "GET /api/auth/admin/stats/ HTTP/1.1" 403 63
+INFO 2025-08-02 15:14:30,850 basehttp 16168 22044 "GET /api/auth/profile/ HTTP/1.1" 200 149
+INFO 2025-08-02 15:25:09,608 views 16168 6736 Login attempt with username: chethan
+INFO 2025-08-02 15:25:09,842 views 16168 6736 User chethan logged in successfully
+INFO 2025-08-02 15:25:09,842 basehttp 16168 6736 "POST /api/auth/signin/ HTTP/1.1" 200 483
+INFO 2025-08-02 15:25:47,944 basehttp 16168 6736 "GET /api/auth/profile/ HTTP/1.1" 200 131
+INFO 2025-08-02 15:26:45,267 basehttp 16168 6736 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+WARNING 2025-08-02 15:34:25,371 log 16168 23416 Not Found: /api/auth/admin/bashboard/
+WARNING 2025-08-02 15:34:25,373 basehttp 16168 23416 "GET /api/auth/admin/bashboard/ HTTP/1.1" 404 13806
+INFO 2025-08-02 15:34:34,339 basehttp 16168 23416 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 15:36:44,721 basehttp 16168 13572 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 15:37:27,510 basehttp 16168 13572 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 15:37:41,808 basehttp 16168 13572 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 16:01:28,963 basehttp 16168 4036 "GET /api/companies/ HTTP/1.1" 200 2828
+INFO 2025-08-02 16:02:25,418 basehttp 16168 4036 "GET /api/companies/1/ HTTP/1.1" 200 409
+INFO 2025-08-02 16:02:30,145 basehttp 16168 4036 "GET /api/companies/10/ HTTP/1.1" 200 548
+INFO 2025-08-02 16:47:26,807 basehttp 16168 16996 code 400, message Bad request version ('À\x13À')
+ERROR 2025-08-02 16:47:26,807 basehttp 16168 16996 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-02 16:47:47,331 basehttp 16168 7496 code 400, message Bad request version ('À\x13À')
+ERROR 2025-08-02 16:47:47,331 basehttp 16168 7496 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-02 16:47:48,648 basehttp 16168 3860 code 400, message Bad request version ('.£<F;\x11¿')
+ERROR 2025-08-02 16:47:48,648 basehttp 16168 3860 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-02 16:48:02,774 basehttp 16168 20140 code 400, message Bad request version ('À\x13À')
+ERROR 2025-08-02 16:48:02,774 basehttp 16168 20140 You're accessing the development server over HTTPS, but it only supports HTTP.
+WARNING 2025-08-02 16:48:15,373 log 16168 788 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 16:48:15,374 basehttp 16168 788 "GET /api/auth/admin/stats/ HTTP/1.1" 401 183
+INFO 2025-08-02 16:48:21,374 views 16168 788 Login attempt with username: chethan
+INFO 2025-08-02 16:48:21,602 views 16168 788 User chethan logged in successfully
+INFO 2025-08-02 16:48:21,603 basehttp 16168 788 "POST /api/auth/signin/ HTTP/1.1" 200 483
+INFO 2025-08-02 16:48:37,300 basehttp 16168 788 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 16:48:49,362 basehttp 16168 3572 code 400, message Bad request version ('o\x8b\x00\x8a·®\x1a')
+ERROR 2025-08-02 16:48:49,362 basehttp 16168 3572 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-02 16:49:05,848 basehttp 16168 788 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 16:50:01,776 basehttp 16168 2420 code 400, message Bad request version ('À\x13À')
+ERROR 2025-08-02 16:50:01,776 basehttp 16168 2420 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-02 16:50:22,381 basehttp 16168 19156 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 16:51:02,741 basehttp 16168 19156 "POST /api/companies/ HTTP/1.1" 201 369
+INFO 2025-08-02 17:00:25,123 basehttp 16168 15704 "OPTIONS /api/auth/signin/ HTTP/1.1" 200 0
+INFO 2025-08-02 17:00:25,125 views 16168 15704 Login attempt with username: chethan
+WARNING 2025-08-02 17:00:25,411 views 16168 15704 Login failed for chethan: No active account found with the given credentials
+WARNING 2025-08-02 17:00:25,412 log 16168 15704 Unauthorized: /api/auth/signin/
+WARNING 2025-08-02 17:00:25,412 basehttp 16168 15704 "POST /api/auth/signin/ HTTP/1.1" 401 63
+INFO 2025-08-02 17:00:31,127 views 16168 15704 Login attempt with username: chethan
+WARNING 2025-08-02 17:00:31,460 views 16168 15704 Login failed for chethan: No active account found with the given credentials
+WARNING 2025-08-02 17:00:31,462 log 16168 15704 Unauthorized: /api/auth/signin/
+WARNING 2025-08-02 17:00:31,462 basehttp 16168 15704 "POST /api/auth/signin/ HTTP/1.1" 401 63
+INFO 2025-08-02 17:00:33,230 views 16168 15704 Login attempt with username: chethan
+INFO 2025-08-02 17:00:33,540 views 16168 15704 User chethan logged in successfully
+INFO 2025-08-02 17:00:33,541 basehttp 16168 15704 "POST /api/auth/signin/ HTTP/1.1" 200 483
+INFO 2025-08-02 17:00:35,906 views 16168 15704 Login attempt with username: chethan
+WARNING 2025-08-02 17:00:36,260 views 16168 15704 Login failed for chethan: No active account found with the given credentials
+WARNING 2025-08-02 17:00:36,262 log 16168 15704 Unauthorized: /api/auth/signin/
+WARNING 2025-08-02 17:00:36,262 basehttp 16168 15704 "POST /api/auth/signin/ HTTP/1.1" 401 63
+INFO 2025-08-02 17:00:43,808 views 16168 15704 Login attempt with username: chethan
+INFO 2025-08-02 17:00:44,108 views 16168 15704 User chethan logged in successfully
+INFO 2025-08-02 17:00:44,109 basehttp 16168 15704 "POST /api/auth/signin/ HTTP/1.1" 200 483
+INFO 2025-08-02 17:00:47,941 views 16168 15704 Login attempt with username: chethan
+INFO 2025-08-02 17:00:48,229 views 16168 15704 User chethan logged in successfully
+INFO 2025-08-02 17:00:48,230 basehttp 16168 15704 "POST /api/auth/signin/ HTTP/1.1" 200 483
+INFO 2025-08-02 17:01:37,492 autoreload 16168 20132 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\views.py changed, reloading.
+INFO 2025-08-02 17:01:37,993 autoreload 10528 19576 Watching for file changes with StatReloader
+INFO 2025-08-02 17:02:31,332 basehttp 10528 10260 "OPTIONS /api/auth/admin/stats/ HTTP/1.1" 200 0
+INFO 2025-08-02 17:02:31,332 basehttp 10528 15676 "OPTIONS /api/auth/admin/stats/ HTTP/1.1" 200 0
+WARNING 2025-08-02 17:02:31,338 log 10528 15676 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:02:31,338 basehttp 10528 15676 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:02:31,340 log 10528 15676 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:02:31,341 basehttp 10528 15676 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:02:32,396 log 10528 15676 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:02:32,398 basehttp 10528 15676 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:02:32,399 log 10528 15676 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:02:32,400 basehttp 10528 15676 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:02:33,332 log 10528 15676 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:02:33,333 basehttp 10528 15676 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:02:33,334 log 10528 15676 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:02:33,334 basehttp 10528 15676 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+INFO 2025-08-02 17:09:32,222 autoreload 10528 19576 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\views.py changed, reloading.
+INFO 2025-08-02 17:09:32,787 autoreload 12492 8104 Watching for file changes with StatReloader
+INFO 2025-08-02 17:11:28,916 views 12492 2108 Login attempt with username: chethan
+INFO 2025-08-02 17:11:29,215 views 12492 2108 User chethan logged in successfully
+INFO 2025-08-02 17:11:29,217 basehttp 12492 2108 "POST /api/auth/signin/ HTTP/1.1" 200 659
+WARNING 2025-08-02 17:11:29,229 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:11:29,229 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:11:29,231 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:11:29,231 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:11:44,871 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:11:44,872 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:11:44,873 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:11:44,874 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:16:25,970 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:16:25,970 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:16:25,972 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:16:25,972 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+INFO 2025-08-02 17:16:36,468 views 12492 2108 Login attempt with username: chethan
+INFO 2025-08-02 17:16:36,759 views 12492 2108 User chethan logged in successfully
+INFO 2025-08-02 17:16:36,760 basehttp 12492 2108 "POST /api/auth/signin/ HTTP/1.1" 200 659
+WARNING 2025-08-02 17:16:36,771 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:16:36,772 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:16:36,773 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:16:36,773 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:16:40,186 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:16:40,187 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:16:40,189 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:16:40,189 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:20:17,463 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:20:17,463 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:20:17,464 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:20:17,465 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:23:25,912 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:23:25,913 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:23:25,914 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:23:25,914 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:23:29,201 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:23:29,202 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:23:29,203 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:23:29,204 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+INFO 2025-08-02 17:24:57,691 views 12492 2108 Login attempt with username: test
+WARNING 2025-08-02 17:24:57,978 views 12492 2108 Login failed for test: No active account found with the given credentials
+WARNING 2025-08-02 17:24:57,978 log 12492 2108 Unauthorized: /api/auth/signin/
+WARNING 2025-08-02 17:24:57,978 basehttp 12492 2108 "POST /api/auth/signin/ HTTP/1.1" 401 63
+INFO 2025-08-02 17:25:04,018 views 12492 2108 Login attempt with username: chethan
+INFO 2025-08-02 17:25:04,298 views 12492 2108 User chethan logged in successfully
+INFO 2025-08-02 17:25:04,298 basehttp 12492 2108 "POST /api/auth/signin/ HTTP/1.1" 200 659
+INFO 2025-08-02 17:25:04,362 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:25:04,413 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:25:11,872 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:25:11,923 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+WARNING 2025-08-02 17:25:21,671 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:25:21,671 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+WARNING 2025-08-02 17:25:21,671 log 12492 2108 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:25:21,671 basehttp 12492 2108 "GET /api/auth/admin/stats/ HTTP/1.1" 401 58
+INFO 2025-08-02 17:25:41,059 autoreload 12492 8104 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\admin_views.py changed, reloading.
+INFO 2025-08-02 17:25:41,563 autoreload 10284 17644 Watching for file changes with StatReloader
+INFO 2025-08-02 17:26:29,396 basehttp 10284 492 "OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+INFO 2025-08-02 17:26:29,406 views 10284 492 Registration attempt with data: {'username': 'dadu123', 'email': 'dadu123@example.com', 'password': 'dadu1234', 'first_name': 'Dadefir', 'last_name': 'Metagar'}
+INFO 2025-08-02 17:26:29,465 views 10284 492 Creating user: dadu123
+INFO 2025-08-02 17:26:29,735 views 10284 492 User dadu123 created successfully
+INFO 2025-08-02 17:26:29,750 basehttp 10284 492 "POST /api/auth/register/ HTTP/1.1" 201 633
+INFO 2025-08-02 17:26:45,362 views 10284 492 Login attempt with username: dadu123
+INFO 2025-08-02 17:26:45,634 views 10284 492 User dadu123 logged in successfully
+INFO 2025-08-02 17:26:45,634 basehttp 10284 492 "POST /api/auth/signin/ HTTP/1.1" 200 677
+INFO 2025-08-02 17:27:32,470 basehttp 10284 2972 "GET /api/ HTTP/1.1" 200 689
+INFO 2025-08-02 17:27:52,834 views 10284 492 Login attempt with username: chethan
+INFO 2025-08-02 17:27:53,054 views 10284 492 User chethan logged in successfully
+INFO 2025-08-02 17:27:53,054 basehttp 10284 492 "POST /api/auth/signin/ HTTP/1.1" 200 659
+INFO 2025-08-02 17:27:53,113 basehttp 10284 492 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:27:53,156 basehttp 10284 492 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:27:57,504 basehttp 10284 492 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:27:57,567 basehttp 10284 492 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:28:19,638 basehttp 10284 22672 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:28:41,689 autoreload 10284 17644 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\admin_views.py changed, reloading.
+INFO 2025-08-02 17:28:42,176 autoreload 18052 7484 Watching for file changes with StatReloader
+INFO 2025-08-02 17:29:12,081 autoreload 18052 7484 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\admin_views.py changed, reloading.
+INFO 2025-08-02 17:29:12,559 autoreload 14764 9076 Watching for file changes with StatReloader
+INFO 2025-08-02 17:29:25,094 autoreload 14764 9076 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\urls.py changed, reloading.
+INFO 2025-08-02 17:29:25,575 autoreload 20492 20476 Watching for file changes with StatReloader
+INFO 2025-08-02 17:30:42,463 basehttp 20492 11512 "GET /api/auth/admin/users/ HTTP/1.1" 200 877
+INFO 2025-08-02 17:32:35,645 basehttp 20492 16816 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:32:35,697 basehttp 20492 16816 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:32:42,156 basehttp 20492 16816 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:32:42,218 basehttp 20492 16816 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:32:44,537 autoreload 20492 20476 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\admin_views.py changed, reloading.
+INFO 2025-08-02 17:32:45,024 autoreload 20672 17256 Watching for file changes with StatReloader
+INFO 2025-08-02 17:32:51,417 autoreload 20672 17256 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\admin_views.py changed, reloading.
+INFO 2025-08-02 17:32:51,937 autoreload 20432 8496 Watching for file changes with StatReloader
+INFO 2025-08-02 17:33:20,107 views 20432 15564 Login attempt with username: chethan
+INFO 2025-08-02 17:33:20,361 views 20432 15564 User chethan logged in successfully
+INFO 2025-08-02 17:33:20,362 basehttp 20432 15564 "POST /api/auth/signin/ HTTP/1.1" 200 659
+INFO 2025-08-02 17:33:20,420 basehttp 20432 15564 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:33:20,461 basehttp 20432 15564 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:33:57,865 autoreload 20432 8496 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\authentication\admin_views.py changed, reloading.
+INFO 2025-08-02 17:33:58,298 autoreload 15112 10928 Watching for file changes with StatReloader
+INFO 2025-08-02 17:35:33,737 autoreload 15112 10928 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\ipos\views.py changed, reloading.
+INFO 2025-08-02 17:35:34,225 autoreload 22424 8460 Watching for file changes with StatReloader
+INFO 2025-08-02 17:35:35,045 views 22424 13260 Login attempt with username: dadu123
+INFO 2025-08-02 17:35:35,387 views 22424 13260 User dadu123 logged in successfully
+INFO 2025-08-02 17:35:35,388 basehttp 22424 13260 "POST /api/auth/signin/ HTTP/1.1" 200 677
+INFO 2025-08-02 17:35:35,458 basehttp 22424 13260 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:35:35,504 basehttp 22424 13260 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:35:41,097 basehttp 22424 13260 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:35:41,133 basehttp 22424 13260 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:35:55,083 autoreload 22424 8460 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\ipos\views.py changed, reloading.
+INFO 2025-08-02 17:35:55,539 autoreload 19600 10612 Watching for file changes with StatReloader
+INFO 2025-08-02 17:36:02,958 autoreload 19600 10612 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\ipos\views.py changed, reloading.
+INFO 2025-08-02 17:36:03,397 autoreload 19196 22472 Watching for file changes with StatReloader
+INFO 2025-08-02 17:36:24,155 autoreload 19196 22472 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\ipos\views.py changed, reloading.
+INFO 2025-08-02 17:36:24,673 autoreload 6040 14676 Watching for file changes with StatReloader
+INFO 2025-08-02 17:36:39,334 autoreload 6040 14676 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\companies\views.py changed, reloading.
+INFO 2025-08-02 17:36:39,838 autoreload 12016 11512 Watching for file changes with StatReloader
+INFO 2025-08-02 17:56:15,223 views 12016 13284 Login attempt with username: chethan
+INFO 2025-08-02 17:56:15,472 views 12016 13284 User chethan logged in successfully
+INFO 2025-08-02 17:56:15,472 basehttp 12016 13284 "POST /api/auth/signin/ HTTP/1.1" 200 659
+INFO 2025-08-02 17:56:15,645 basehttp 12016 13284 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:56:15,689 basehttp 12016 13284 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:56:18,196 basehttp 12016 13284 "OPTIONS /api/companies/ HTTP/1.1" 200 0
+INFO 2025-08-02 17:56:18,197 basehttp 12016 19516 "OPTIONS /api/companies/ HTTP/1.1" 200 0
+INFO 2025-08-02 17:56:18,276 basehttp 12016 13284 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 17:56:18,342 basehttp 12016 13284 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 17:56:23,345 basehttp 12016 13284 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 17:56:23,413 basehttp 12016 13284 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 17:56:35,027 views 12016 13284 Login attempt with username: dadu123
+INFO 2025-08-02 17:56:35,261 views 12016 13284 User dadu123 logged in successfully
+INFO 2025-08-02 17:56:35,262 basehttp 12016 13284 "POST /api/auth/signin/ HTTP/1.1" 200 677
+INFO 2025-08-02 17:56:35,322 basehttp 12016 13284 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:56:35,367 basehttp 12016 13284 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:56:36,513 basehttp 12016 13284 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 17:56:36,587 basehttp 12016 13284 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 17:56:41,287 basehttp 12016 13284 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 17:56:41,362 basehttp 12016 13284 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 17:57:50,586 basehttp 12016 13284 "OPTIONS /api/ipos/ HTTP/1.1" 200 0
+ERROR 2025-08-02 17:57:50,716 log 12016 13284 Internal Server Error: /api/ipos/
+Traceback (most recent call last):
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 227, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 426, in run_validation
+    value = self.to_internal_value(data)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 479, in to_internal_value
+    for field in fields:
+                 ^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 362, in _writable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\utils\functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `qib_subscription` is not valid for model `IPO`.
+ERROR 2025-08-02 17:57:50,716 basehttp 12016 13284 "POST /api/ipos/ HTTP/1.1" 500 160304
+ERROR 2025-08-02 17:57:52,720 log 12016 13284 Internal Server Error: /api/ipos/
+Traceback (most recent call last):
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 227, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 426, in run_validation
+    value = self.to_internal_value(data)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 479, in to_internal_value
+    for field in fields:
+                 ^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 362, in _writable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\utils\functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `qib_subscription` is not valid for model `IPO`.
+ERROR 2025-08-02 17:57:52,725 basehttp 12016 13284 "POST /api/ipos/ HTTP/1.1" 500 160304
+WARNING 2025-08-02 17:58:23,364 log 12016 2072 Unauthorized: /api/ipos/
+WARNING 2025-08-02 17:58:23,364 basehttp 12016 2072 "GET /api/ipos/ HTTP/1.1" 401 183
+INFO 2025-08-02 17:58:26,783 views 12016 2072 Login attempt with username: chethan
+INFO 2025-08-02 17:58:27,004 views 12016 2072 User chethan logged in successfully
+INFO 2025-08-02 17:58:27,004 basehttp 12016 2072 "POST /api/auth/signin/ HTTP/1.1" 200 659
+WARNING 2025-08-02 17:58:38,447 log 12016 2072 Unauthorized: /api/auth/admin/stats/
+WARNING 2025-08-02 17:58:38,447 basehttp 12016 2072 "GET /api/auth/admin/stats/ HTTP/1.1" 401 107
+INFO 2025-08-02 17:58:57,160 basehttp 12016 2072 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 17:59:03,332 basehttp 12016 2072 "GET /api/ipos/ HTTP/1.1" 200 8510
+INFO 2025-08-02 17:59:41,124 basehttp 12016 2636 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 17:59:41,294 basehttp 12016 2636 "GET /api/companies/ HTTP/1.1" 200 2820
+ERROR 2025-08-02 18:00:02,490 log 12016 2636 Internal Server Error: /api/ipos/
+Traceback (most recent call last):
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 227, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 426, in run_validation
+    value = self.to_internal_value(data)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 479, in to_internal_value
+    for field in fields:
+                 ^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 362, in _writable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\utils\functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `qib_subscription` is not valid for model `IPO`.
+ERROR 2025-08-02 18:00:02,490 basehttp 12016 2636 "POST /api/ipos/ HTTP/1.1" 500 160302
+ERROR 2025-08-02 18:03:54,941 log 12016 2636 Internal Server Error: /api/ipos/
+Traceback (most recent call last):
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 227, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 426, in run_validation
+    value = self.to_internal_value(data)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 479, in to_internal_value
+    for field in fields:
+                 ^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 362, in _writable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\django\utils\functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\venv\Lib\site-packages\rest_framework\serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `qib_subscription` is not valid for model `IPO`.
+ERROR 2025-08-02 18:03:54,941 basehttp 12016 2636 "POST /api/ipos/ HTTP/1.1" 500 160302
+INFO 2025-08-02 18:05:00,004 autoreload 12016 11512 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\ipos\serializers.py changed, reloading.
+INFO 2025-08-02 18:05:00,645 autoreload 20640 12100 Watching for file changes with StatReloader
+INFO 2025-08-02 18:05:09,107 autoreload 20640 12100 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\ipos\serializers.py changed, reloading.
+INFO 2025-08-02 18:05:09,731 autoreload 2504 3304 Watching for file changes with StatReloader
+INFO 2025-08-02 18:06:21,717 autoreload 2504 3304 C:\Users\Chethan\OneDrive\Desktop\Summer\IPO_Web_App_REST_API_For_Mobile_App\ipo_backend\companies\views.py changed, reloading.
+INFO 2025-08-02 18:06:22,292 autoreload 15604 4768 Watching for file changes with StatReloader
+INFO 2025-08-02 18:29:57,892 basehttp 15604 21056 "POST /api/ipos/ HTTP/1.1" 201 453
+INFO 2025-08-02 18:31:09,446 basehttp 15604 18636 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:31:16,721 basehttp 15604 21056 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:31:16,884 basehttp 15604 21056 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:31:28,982 basehttp 15604 21056 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 18:31:29,029 basehttp 15604 21056 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 18:31:31,105 basehttp 15604 21056 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:31:31,154 basehttp 15604 21056 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:31:32,507 basehttp 15604 21056 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 18:31:32,554 basehttp 15604 21056 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 18:31:39,160 basehttp 15604 21056 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:31:39,207 basehttp 15604 22192 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:31:47,777 views 15604 22192 Login attempt with username: chethan
+INFO 2025-08-02 18:31:48,054 views 15604 22192 User chethan logged in successfully
+INFO 2025-08-02 18:31:48,054 basehttp 15604 22192 "POST /api/auth/signin/ HTTP/1.1" 200 659
+INFO 2025-08-02 18:31:48,225 basehttp 15604 22192 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 18:31:48,278 basehttp 15604 22192 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 18:31:49,308 basehttp 15604 22192 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:31:49,366 basehttp 15604 21056 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:31:52,108 basehttp 15604 21056 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 18:31:52,192 basehttp 15604 21056 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 18:31:53,492 basehttp 15604 21056 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 18:31:53,550 basehttp 15604 21056 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 18:31:54,239 basehttp 15604 21056 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:31:54,291 basehttp 15604 22192 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:31:55,493 basehttp 15604 22192 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 18:31:55,574 basehttp 15604 22192 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 18:31:59,375 basehttp 15604 22192 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 18:31:59,459 basehttp 15604 22192 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 18:32:00,459 basehttp 15604 22192 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:32:00,517 basehttp 15604 21056 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:32:02,301 basehttp 15604 21056 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 18:32:02,360 basehttp 15604 21056 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+INFO 2025-08-02 18:33:56,087 basehttp 15604 12028 "GET /api/ipos/search/?q=tech&status=upcoming HTTP/1.1" 200 3808
+INFO 2025-08-02 18:36:24,977 basehttp 15604 14160 "GET /api/companies/7/ HTTP/1.1" 200 561
+INFO 2025-08-02 18:39:02,131 basehttp 15604 7092 "PUT /api/companies/7/ HTTP/1.1" 200 560
+INFO 2025-08-02 18:39:09,015 basehttp 15604 7092 "GET /api/companies/7/ HTTP/1.1" 200 560
+INFO 2025-08-02 18:40:02,779 basehttp 15604 7092 "GET /api/ipos/7/ HTTP/1.1" 200 885
+INFO 2025-08-02 18:40:24,810 basehttp 15604 7092 "PATCH /api/ipos/7/ HTTP/1.1" 200 505
+INFO 2025-08-02 18:40:31,500 basehttp 15604 7092 "GET /api/ipos/7/ HTTP/1.1" 200 885
+INFO 2025-08-02 18:40:48,789 basehttp 15604 7092 "PATCH /api/ipos/7/ HTTP/1.1" 200 505
+INFO 2025-08-02 18:40:57,812 basehttp 15604 7092 "GET /api/ipos/7/ HTTP/1.1" 200 885
+INFO 2025-08-02 18:41:12,445 basehttp 15604 7092 "PATCH /api/ipos/7/ HTTP/1.1" 200 505
+WARNING 2025-08-02 18:42:25,137 log 15604 4364 Bad Request: /api/ipos/
+WARNING 2025-08-02 18:42:25,137 basehttp 15604 4364 "POST /api/ipos/ HTTP/1.1" 400 335
+INFO 2025-08-02 18:43:16,511 basehttp 15604 9900 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:43:16,570 basehttp 15604 9900 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:43:18,928 basehttp 15604 9900 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:43:18,985 basehttp 15604 22548 "GET /api/ipos/ HTTP/1.1" 200 8511
+WARNING 2025-08-02 18:44:01,896 log 15604 23492 Bad Request: /api/companies/
+WARNING 2025-08-02 18:44:01,896 basehttp 15604 23492 "POST /api/companies/ HTTP/1.1" 400 51
+WARNING 2025-08-02 18:44:15,818 log 15604 23492 Bad Request: /api/companies/
+WARNING 2025-08-02 18:44:15,818 basehttp 15604 23492 "POST /api/companies/ HTTP/1.1" 400 51
+INFO 2025-08-02 18:44:19,273 views 15604 23492 Login attempt with username: chethan
+INFO 2025-08-02 18:44:19,503 views 15604 23492 User chethan logged in successfully
+INFO 2025-08-02 18:44:19,508 basehttp 15604 23492 "POST /api/auth/signin/ HTTP/1.1" 200 659
+INFO 2025-08-02 18:44:33,695 basehttp 15604 23492 "GET /api/auth/admin/stats/ HTTP/1.1" 200 214
+WARNING 2025-08-02 18:44:39,972 log 15604 23492 Bad Request: /api/companies/
+WARNING 2025-08-02 18:44:39,972 basehttp 15604 23492 "POST /api/companies/ HTTP/1.1" 400 51
+INFO 2025-08-02 18:46:46,071 basehttp 15604 4192 "GET /api/ipos/?search=InnovateTech%20Ltd HTTP/1.1" 200 52
+INFO 2025-08-02 18:47:58,052 basehttp 15604 7708 "GET /api/ipos/?search=AutoParts%20Manufacturing HTTP/1.1" 200 1331
+INFO 2025-08-02 18:48:38,818 basehttp 15604 18020 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:48:38,876 basehttp 15604 18020 "GET /api/ipos/ HTTP/1.1" 200 8511
+INFO 2025-08-02 18:49:17,871 basehttp 15604 17644 "GET /api/ipos/31/ HTTP/1.1" 200 839
+WARNING 2025-08-02 18:49:30,111 log 15604 17644 Not Found: /api/companies/31/
+WARNING 2025-08-02 18:49:30,111 basehttp 15604 17644 "GET /api/companies/31/ HTTP/1.1" 404 23
+WARNING 2025-08-02 18:49:41,235 log 15604 17644 Not Found: /api/companies/30/
+WARNING 2025-08-02 18:49:41,235 basehttp 15604 17644 "GET /api/companies/30/ HTTP/1.1" 404 23
+INFO 2025-08-02 18:49:50,237 basehttp 15604 17644 "GET /api/companies/1/ HTTP/1.1" 200 409
+INFO 2025-08-02 18:50:25,041 basehttp 15604 17644 "GET /api/companies/ HTTP/1.1" 200 2820
+WARNING 2025-08-02 18:50:36,504 log 15604 17644 Not Found: /api/companies/AutoParts Manufacturing/
+WARNING 2025-08-02 18:50:36,504 basehttp 15604 17644 "GET /api/companies/AutoParts%20Manufacturing/ HTTP/1.1" 404 23
+INFO 2025-08-02 18:51:13,139 basehttp 15604 17644 "GET /api/ipos/31/ HTTP/1.1" 200 839
+WARNING 2025-08-02 18:51:47,016 log 15604 17644 Not Found: /api/companies/31/
+WARNING 2025-08-02 18:51:47,016 basehttp 15604 17644 "GET /api/companies/31/ HTTP/1.1" 404 23
+INFO 2025-08-02 18:51:56,285 basehttp 15604 17644 "GET /api/ipos/31/ HTTP/1.1" 200 839
+INFO 2025-08-02 18:52:07,356 basehttp 15604 17644 "DELETE /api/ipos/31/ HTTP/1.1" 204 0
+INFO 2025-08-02 18:52:11,087 basehttp 15604 18020 "GET /api/ipos/ HTTP/1.1" 200 8510
+INFO 2025-08-02 18:52:11,136 basehttp 15604 18020 "GET /api/ipos/ HTTP/1.1" 200 8510
+WARNING 2025-08-02 18:52:21,224 log 15604 17644 Not Found: /api/ipos/31/
+WARNING 2025-08-02 18:52:21,224 basehttp 15604 17644 "GET /api/ipos/31/ HTTP/1.1" 404 23
+WARNING 2025-08-02 18:52:24,374 log 15604 17644 Method Not Allowed: /api/ipos/31/
+WARNING 2025-08-02 18:52:24,374 basehttp 15604 17644 "POST /api/ipos/31/ HTTP/1.1" 405 41
+WARNING 2025-08-02 18:52:27,808 log 15604 17644 Bad Request: /api/ipos/
+WARNING 2025-08-02 18:52:27,808 basehttp 15604 17644 "POST /api/ipos/ HTTP/1.1" 400 335
+WARNING 2025-08-02 18:52:50,330 log 15604 17644 Bad Request: /api/ipos/
+WARNING 2025-08-02 18:52:50,330 basehttp 15604 17644 "POST /api/ipos/ HTTP/1.1" 400 335
+INFO 2025-08-02 18:52:55,220 basehttp 15604 17644 "GET /api/ipos/ HTTP/1.1" 200 8510
+WARNING 2025-08-02 18:53:02,737 log 15604 17644 Not Found: /api/ipos/InnovateTech Ltd/
+WARNING 2025-08-02 18:53:02,737 basehttp 15604 17644 "GET /api/ipos/InnovateTech%20Ltd/ HTTP/1.1" 404 23
+INFO 2025-08-02 18:53:21,468 basehttp 15604 17644 "GET /api/ipos/?name=InnovateTech%20Ltd/ HTTP/1.1" 200 8535
+INFO 2025-08-02 18:53:56,350 basehttp 15604 17644 "GET /api/ipos/30/ HTTP/1.1" 200 1431
+WARNING 2025-08-02 18:54:06,765 log 15604 17644 Not Found: /api/comapnies/30/
+WARNING 2025-08-02 18:54:06,765 basehttp 15604 17644 "GET /api/comapnies/30/ HTTP/1.1" 404 12414
+INFO 2025-08-02 18:54:11,431 basehttp 15604 17644 "GET /api/ipos/30/ HTTP/1.1" 200 1431
+WARNING 2025-08-02 18:54:43,940 log 15604 17644 Not Found: /api/companies/30/
+WARNING 2025-08-02 18:54:43,940 basehttp 15604 17644 "GET /api/companies/30/ HTTP/1.1" 404 23
+INFO 2025-08-02 18:56:13,878 basehttp 15604 17500 "GET /api/ipos/30/ HTTP/1.1" 200 1431
+WARNING 2025-08-02 18:56:38,009 log 15604 17500 Bad Request: /api/ipos/
+WARNING 2025-08-02 18:56:38,009 basehttp 15604 17500 "POST /api/ipos/ HTTP/1.1" 400 335
+WARNING 2025-08-02 18:57:33,438 log 15604 17500 Bad Request: /api/companies/
+WARNING 2025-08-02 18:57:33,438 basehttp 15604 17500 "POST /api/companies/ HTTP/1.1" 400 51
+INFO 2025-08-02 18:57:43,281 basehttp 15604 17500 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 18:58:03,402 basehttp 15604 17500 "GET /api/companies/26/ HTTP/1.1" 200 369
+WARNING 2025-08-02 18:58:31,416 log 15604 17500 Bad Request: /api/ipos/
+WARNING 2025-08-02 18:58:31,416 basehttp 15604 17500 "POST /api/ipos/ HTTP/1.1" 400 215
+INFO 2025-08-02 18:58:58,246 basehttp 15604 17500 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 18:59:55,690 basehttp 15604 17500 "GET /api/ipos/ HTTP/1.1" 200 8510
+INFO 2025-08-02 19:00:24,707 basehttp 15604 6652 "GET /api/ipos/ HTTP/1.1" 200 8510
+INFO 2025-08-02 19:00:24,767 basehttp 15604 6652 "GET /api/ipos/ HTTP/1.1" 200 8510
+WARNING 2025-08-02 19:02:14,446 log 15604 9192 Bad Request: /api/companies/
+WARNING 2025-08-02 19:02:14,446 basehttp 15604 9192 "POST /api/companies/ HTTP/1.1" 400 51
+INFO 2025-08-02 19:02:26,494 basehttp 15604 9192 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 19:02:50,241 basehttp 15604 9192 "POST /api/companies/ HTTP/1.1" 201 397
+INFO 2025-08-02 19:03:51,638 basehttp 15604 5516 "POST /api/ipos/ HTTP/1.1" 201 452
+INFO 2025-08-02 19:04:12,442 basehttp 15604 6652 "GET /api/ipos/ HTTP/1.1" 200 8508
+INFO 2025-08-02 19:04:12,498 basehttp 15604 6652 "GET /api/ipos/ HTTP/1.1" 200 8508
+INFO 2025-08-02 19:04:30,012 basehttp 15604 6652 "GET /api/ipos/ HTTP/1.1" 200 8508
+INFO 2025-08-02 19:04:30,070 basehttp 15604 12176 "GET /api/ipos/ HTTP/1.1" 200 8508
+INFO 2025-08-02 19:04:49,975 basehttp 15604 5516 "GET /api/ipos/ HTTP/1.1" 200 8508
+INFO 2025-08-02 19:05:03,797 basehttp 15604 5516 "GET /api/ipos/24/ HTTP/1.1" 200 2220
+INFO 2025-08-02 19:05:11,455 basehttp 15604 5516 "DELETE /api/ipos/24/ HTTP/1.1" 204 0
+INFO 2025-08-02 19:05:15,075 basehttp 15604 12176 "GET /api/ipos/ HTTP/1.1" 200 8510
+INFO 2025-08-02 19:05:15,133 basehttp 15604 6652 "GET /api/ipos/ HTTP/1.1" 200 8510
+INFO 2025-08-02 19:05:22,414 basehttp 15604 5516 "DELETE /api/ipos/13/ HTTP/1.1" 204 0
+INFO 2025-08-02 19:05:24,916 basehttp 15604 6652 "GET /api/ipos/ HTTP/1.1" 200 8510
+INFO 2025-08-02 19:05:24,973 basehttp 15604 12176 "GET /api/ipos/ HTTP/1.1" 200 8510
+INFO 2025-08-02 19:05:43,447 basehttp 15604 5516 "POST /api/ipos/ HTTP/1.1" 201 452
+INFO 2025-08-02 19:05:45,909 basehttp 15604 12176 "GET /api/ipos/ HTTP/1.1" 200 8512
+INFO 2025-08-02 19:05:45,972 basehttp 15604 6652 "GET /api/ipos/ HTTP/1.1" 200 8512
+WARNING 2025-08-02 19:06:16,233 log 15604 5516 Bad Request: /api/companies/
+WARNING 2025-08-02 19:06:16,236 basehttp 15604 5516 "POST /api/companies/ HTTP/1.1" 400 51
+INFO 2025-08-02 19:06:21,033 basehttp 15604 5516 "GET /api/companies/ HTTP/1.1" 200 2820
+WARNING 2025-08-02 19:06:49,311 log 15604 5516 Bad Request: /api/companies/
+WARNING 2025-08-02 19:06:49,311 basehttp 15604 5516 "POST /api/companies/ HTTP/1.1" 400 51
+WARNING 2025-08-02 19:06:53,908 log 15604 5516 Bad Request: /api/companies/
+WARNING 2025-08-02 19:06:53,908 basehttp 15604 5516 "POST /api/companies/ HTTP/1.1" 400 51
+INFO 2025-08-02 19:07:06,266 basehttp 15604 5516 "GET /api/companies/ HTTP/1.1" 200 2820
+INFO 2025-08-02 19:07:53,083 basehttp 15604 5516 "POST /api/companies/ HTTP/1.1" 201 396
+INFO 2025-08-02 19:08:20,342 basehttp 15604 6652 "GET /api/ipos/ HTTP/1.1" 200 8512
+INFO 2025-08-02 19:08:20,406 basehttp 15604 12176 "GET /api/ipos/ HTTP/1.1" 200 8512
+INFO 2025-08-02 19:08:33,163 basehttp 15604 5516 "POST /api/ipos/ HTTP/1.1" 201 452
+INFO 2025-08-02 19:08:35,474 basehttp 15604 12176 "GET /api/ipos/ HTTP/1.1" 200 8510
+INFO 2025-08-02 19:08:35,534 basehttp 15604 12176 "GET /api/ipos/ HTTP/1.1" 200 8510
+INFO 2025-08-02 19:08:49,317 basehttp 15604 5516 "GET /api/ipos/28/ HTTP/1.1" 200 2036
+INFO 2025-08-02 19:08:55,645 basehttp 15604 5516 "GET /api/ipos/ HTTP/1.1" 200 8510
+INFO 2025-08-02 19:09:01,514 basehttp 15604 5516 "GET /api/ipos/34/ HTTP/1.1" 200 837
+INFO 2025-08-02 19:09:07,477 basehttp 15604 5516 "DELETE /api/ipos/34/ HTTP/1.1" 204 0
+INFO 2025-08-02 19:09:09,268 basehttp 15604 12176 "GET /api/ipos/ HTTP/1.1" 200 8512
+INFO 2025-08-02 19:09:09,336 basehttp 15604 6652 "GET /api/ipos/ HTTP/1.1" 200 8512
+INFO 2025-08-02 19:10:08,772 autoreload 23340 21748 Watching for file changes with StatReloader
+INFO 2025-08-02 19:10:29,325 basehttp 23340 12276 "GET /api/companies/28/ HTTP/1.1" 200 396
+INFO 2025-08-02 19:10:36,433 basehttp 23340 12276 "DELETE /api/companies/28/ HTTP/1.1" 204 0
+WARNING 2025-08-02 19:10:43,052 log 23340 12276 Not Found: /api/companies/28/
+WARNING 2025-08-02 19:10:43,052 basehttp 23340 12276 "GET /api/companies/28/ HTTP/1.1" 404 23

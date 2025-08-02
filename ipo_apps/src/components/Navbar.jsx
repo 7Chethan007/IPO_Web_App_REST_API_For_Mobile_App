@@ -51,10 +51,10 @@ export default function Navbar() {
 
           {/* Auth section inside nav for mobile */}
           <div className="navbar-auth">
-            <Link to="/signin" className="navbar-signin" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link to="/admin/signin" className="navbar-signin" onClick={() => setIsMobileMenuOpen(false)}>
               Sign In
             </Link>
-            <Link to="/signup" className="navbar-signup" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link to="/admin/signup" className="navbar-signup" onClick={() => setIsMobileMenuOpen(false)}>
               Sign Up Now
             </Link>
           </div>
