@@ -1,10 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.core.validators import MinValueValidator, MaxValueValidator
+from django.utils import timezone
+from django.core.exceptions import ValidationError
 from companies.models import Company
 
 
 class IPO(models.Model):
+    """
+    IPO (Initial Public Offering) model to store all IPO related information.
+    Simplified structure for easy understanding and maintenance.
+    """
     BOARD_CHOICES = [
         ('MAIN', 'Main Board'),
         ('SME', 'SME Board'),
@@ -34,11 +39,19 @@ class IPO(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='UPCOMING')
     lot_size = models.IntegerField(help_text="Minimum lot size")
     
-    # Subscription Details
-    total_subscription = models.DecimalField(max_digits=10, decimal_places=2, default=0.0, help_text="Total subscription in times")
-    retail_subscription = models.DecimalField(max_digits=10, decimal_places=2, default=0.0, help_text="Retail subscription in times")
-    qib_subscription = models.DecimalField(max_digits=10, decimal_places=2, default=0.0, help_text="QIB subscription in times")
-    nii_subscription = models.DecimalField(max_digits=10, decimal_places=2, default=0.0, help_text="NII subscription in times")
+    # Subscription Information (how many times IPO was subscribed)
+    total_subscription = models.DecimalField(
+        max_digits=5, decimal_places=2, default=0.0,
+        help_text="Total subscription in times (e.g., 2.5 means 2.5x subscribed)"
+    )
+    retail_subscription = models.DecimalField(
+        max_digits=5, decimal_places=2, default=0.0,
+        help_text="Retail investor subscription in times"
+    )
+    institutional_subscription = models.DecimalField(
+        max_digits=5, decimal_places=2, default=0.0,
+        help_text="Institutional investor subscription in times"
+    )
     
     # Documents
     rhp_document = models.FileField(upload_to='documents/rhps/', blank=True, null=True, help_text="Red Herring Prospectus")
@@ -72,13 +85,13 @@ class IPO(models.Model):
 
     @property
     def is_open(self):
-        from django.utils import timezone
+        """Check if IPO is currently open for subscription"""
         today = timezone.now().date()
         return self.open_date <= today <= self.close_date
 
     @property
     def days_to_open(self):
-        from django.utils import timezone
+        """Get number of days until IPO opens"""
         today = timezone.now().date()
         if self.open_date > today:
             return (self.open_date - today).days
@@ -86,7 +99,7 @@ class IPO(models.Model):
 
     @property
     def days_to_close(self):
-        from django.utils import timezone
+        """Get number of days until IPO closes"""
         today = timezone.now().date()
         if self.close_date > today:
             return (self.close_date - today).days
@@ -94,10 +107,21 @@ class IPO(models.Model):
 
     @property
     def price_range(self):
+        """Get formatted price range"""
         return f"₹{self.price_range_min} - ₹{self.price_range_max}"
 
+    @property
+    def total_issue_value(self):
+        """Get formatted issue size"""
+        return f"₹{self.issue_size} crores"
+
+    @property
+    def is_subscribed(self):
+        """Check if IPO is oversubscribed"""
+        return self.total_subscription > 1.0
+
     def clean(self):
-        from django.core.exceptions import ValidationError
+        """Validate the IPO data before saving"""
         if self.price_range_min >= self.price_range_max:
             raise ValidationError("Minimum price must be less than maximum price")
         if self.open_date >= self.close_date:
@@ -107,6 +131,9 @@ class IPO(models.Model):
 
 
 class IPODocument(models.Model):
+    """
+    Store documents related to IPO (prospectus, application forms, etc.)
+    """
     DOCUMENT_TYPES = [
         ('RHP', 'Red Herring Prospectus'),
         ('DRHP', 'Draft Red Herring Prospectus'),
@@ -132,6 +159,9 @@ class IPODocument(models.Model):
 
 
 class IPONews(models.Model):
+    """
+    Store news articles and updates related to IPOs
+    """
     ipo = models.ForeignKey(IPO, on_delete=models.CASCADE, related_name='news')
     title = models.CharField(max_length=255)
     content = models.TextField()
