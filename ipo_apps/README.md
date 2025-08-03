@@ -1,70 +1,178 @@
-# Getting Started with Create React App
+# IPO Web App - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React.js web application for managing and viewing IPO information with admin dashboard.
+
+## Project Overview
+
+This frontend application provides:
+- User registration and authentication
+- IPO listing and search functionality
+- Admin dashboard with statistics
+- IPO registration and management
+- Responsive design for all devices
+
+## Technology Stack
+
+- **Framework**: React.js 18
+- **Routing**: React Router DOM
+- **Styling**: CSS3, Custom Components
+- **HTTP Client**: Fetch API
+- **Authentication**: JWT Token Management
+- **Icons**: Custom icon components
+
+## Project Structure
+
+```
+ipo_apps/
+├── public/              # Static files
+├── src/
+│   ├── components/      # Reusable React components
+│   │   ├── Auth/       # Login, Signup forms
+│   │   ├── Admin/      # Admin dashboard components
+│   │   └── Common/     # Shared components
+│   ├── pages/          # Page components
+│   ├── services/       # API service functions
+│   ├── App.js          # Main application component
+│   └── index.js        # Application entry point
+├── package.json        # Dependencies and scripts
+└── README.md          # This file
+```
+
+## Features
+
+### Public Features
+- View upcoming IPOs
+- Search IPOs by company name
+- Filter IPOs by status and board type
+- Responsive design
+
+### Admin Features
+- User authentication (login/signup)
+- Admin dashboard with statistics
+- Register new IPOs
+- Manage existing IPOs
+- View all companies and IPO data
+
+## Installation & Setup
+
+1. **Install Node.js** (version 16 or higher)
+
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Setup**
+   Create `.env` file with:
+   ```
+   REACT_APP_API_URL=http://127.0.0.1:8000/api
+   ```
+
+4. **Start Development Server**
+   ```bash
+   npm start
+   ```
+
+5. **Open Browser**
+   Navigate to: `http://localhost:3000`
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm start` - Run development server
+- `npm build` - Build for production
+- `npm test` - Run tests
+- `npm eject` - Eject from Create React App
 
-### `npm start`
+## Application Routes
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Public Routes
+- `/` - Home page with IPO listings
+- `/admin/signin` - Admin login page
+- `/admin/signup` - Admin registration page
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Protected Routes (Admin)
+- `/admin/dashboard` - Admin dashboard with stats
+- `/admin/register-ipo` - IPO registration form
+- `/admin/manage-ipo` - IPO management interface
 
-### `npm test`
+## Authentication Flow
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Registration**: New users sign up with username, email, password
+2. **Login**: Users login with username/email and password
+3. **JWT Token**: Received token stored in localStorage
+4. **Auto-redirect**: Successful login redirects to admin dashboard
+5. **Token Validation**: API calls include JWT token in headers
 
-### `npm run build`
+## API Integration
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The frontend connects to the Django backend API:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Services
+- `authService.js` - User authentication
+- `ipoService.js` - IPO data management
+- `companyService.js` - Company data management
+- `apiClient.js` - HTTP client with JWT handling
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Sample API Calls
+```javascript
+// Get all IPOs
+const ipos = await ipoService.getAllIPOs();
 
-### `npm run eject`
+// Create new IPO
+const newIPO = await ipoService.createIPO(ipoData);
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+// User login
+const user = await authService.login(credentials);
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Styling
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Custom CSS for all components
+- Responsive design principles
+- Modern card-based layouts
+- Professional color scheme
+- Mobile-first approach
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Key Components
 
-## Learn More
+### Authentication
+- `SigninForm.jsx` - User login form
+- `SignupForm.jsx` - User registration form
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Admin Dashboard
+- `Dashboard.jsx` - Main admin dashboard
+- `DashboardOverview.jsx` - Statistics overview
+- `RegisterIPOForm.jsx` - IPO creation form
+- `ManageIPO.jsx` - IPO management interface
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Common Components
+- `Navbar.jsx` - Navigation header
+- `Sidebar.jsx` - Admin navigation sidebar
+- `IPOCard.jsx` - IPO display card
 
-### Code Splitting
+## Data Management
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Local state management with React hooks
+- JWT token persistence in localStorage
+- Real-time data updates from backend API
+- Form validation and error handling
 
-### Analyzing the Bundle Size
+## Testing Credentials
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+For testing purposes:
+- **Admin User**: `chethan@admin.com` / `Chethan@007`
+- **Regular User**: Create via signup form
 
-### Making a Progressive Web App
+## Common Issues
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. **CORS Errors**: Ensure backend CORS settings allow frontend URL
+2. **API Connection**: Check backend server is running on port 8000
+3. **Token Expiry**: Tokens expire after 60 minutes, login again
+4. **Route Protection**: Some routes require admin authentication
 
-### Advanced Configuration
+## Development Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Frontend runs on `http://localhost:3000`
+- Backend API expected at `http://127.0.0.1:8000/api`
+- Uses functional components with hooks
+- Responsive design tested on mobile and desktop
