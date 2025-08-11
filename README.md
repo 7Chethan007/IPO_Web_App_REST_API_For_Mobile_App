@@ -223,11 +223,14 @@ During this project, I learned:
 
 # Upcoming IPO Standalone Figma Website
 
+**Live Preview (GitHub Pages):**  
+<a href="https://7Chethan007.github.io/IPO_Web_App_REST_API_For_Mobile_App/" target="_blank" rel="noopener">
+  https://7Chethan007.github.io/IPO_Web_App_REST_API_For_Mobile_App/
+</a>
 
-**Live Preview (GitHub Pages):**  <br>
-<a href="https://7Chethan007.github.io/IPO_Web_App_REST_API_For_Mobile_App/" target="_blank" rel="noopener">https://7Chethan007.github.io/IPO_Web_App_REST_API_For_Mobile_App/</a>
+**Figma Design (viewable by anyone):**  
+<a href="https://www.figma.com/design/6R142sm1lVrd8JMMV7QMb2/IPO_StandAlone_Figma?node-id=0-1&t=us49OhM26ZDEpONI-1" target="_blank" rel="noopener">
+  https://www.figma.com/design/6R142sm1lVrd8JMMV7QMb2/IPO_StandAlone_Figma?node-id=0-1&t=us49OhM26ZDEpONI-1
+</a>
 
-**Figma Design (viewable by anyone):**  <br>
-<a href="https://www.figma.com/design/6R142sm1lVrd8JMMV7QMb2/IPO_StandAlone_Figma?node-id=0-1&t=us49OhM26ZDEpONI-1" target="_blank" rel="noopener">https://www.figma.com/design/6R142sm1lVrd8JMMV7QMb2/IPO_StandAlone_Figma?node-id=0-1&t=us49OhM26ZDEpONI-1</a>
-
-The live preview is hosted from the `gh-pages` branch and embeds the Figma design for easy viewing.
+---
