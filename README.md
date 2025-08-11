@@ -1,3 +1,9 @@
+# Stand Alone Figma UI 
+
+Hosted on GitHub Pages - [Link](https://7Chethan007.github.io/IPO_Web_App_REST_API_For_Mobile_App/)
+
+View on Figma - [Link](https://www.figma.com/design/6R142sm1lVrd8JMMV7QMb2/IPO_StandAlone_Figma?node-id=0-1&t=us49OhM26ZDEpONI-1)
+
 # IPO Web App & REST API
 
 A complete web application for managing IPO (Initial Public Offering) data with Django backend and React frontend.
