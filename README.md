@@ -1,4 +1,4 @@
-# IPO Web App & REST API
+# IPO Web App & REST API    -   Figma UI in the end [👇](#upcoming-ipo-standalone-figma-website)
 
 A complete web application for managing IPO (Initial Public Offering) data with Django backend and React frontend.
 
@@ -217,5 +217,16 @@ During this project, I learned:
 ---
 
 **Project Status:** Complete and Working  
-**Development Time:** Summer Internship Project  
-**Skill Level:** Beginner to Intermediate
+**Development Time:** Summer Internship Project
+
+---
+
+# Upcoming IPO Standalone Figma Website
+
+- **Live Preview (GitHub Pages):**  
+  [https://7Chethan007.github.io/IPO_Web_App_REST_API_For_Mobile_App/](https://7Chethan007.github.io/IPO_Web_App_REST_API_For_Mobile_App/)
+
+- **Figma Design (viewable by anyone):**  
+  [https://www.figma.com/design/6R142sm1lVrd8JMMV7QMb2/IPO_StandAlone_Figma?node-id=0-1&t=us49OhM26ZDEpONI-1](https://www.figma.com/design/6R142sm1lVrd8JMMV7QMb2/IPO_StandAlone_Figma?node-id=0-1&t=us49OhM26ZDEpONI-1)
+
+The live preview is hosted from the `gh-pages` branch and embeds the Figma design for easy viewing.
