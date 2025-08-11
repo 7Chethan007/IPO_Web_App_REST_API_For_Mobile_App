@@ -1,4 +1,4 @@
-# IPO Web App & REST API    -   Figma UI in the end [👇](#upcoming-ipo-standalone-figma-website)
+# IPO Web App & REST API    -   Figma UI Click -> [👇](#upcoming-ipo-standalone-figma-website)
 
 A complete web application for managing IPO (Initial Public Offering) data with Django backend and React frontend.
 
